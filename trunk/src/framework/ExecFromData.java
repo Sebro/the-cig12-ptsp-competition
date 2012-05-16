@@ -280,7 +280,7 @@ public class ExecFromData extends Exec
     public static void main(String[] args)
     {
 
-        m_mapNames = new String[]{"maps/all/ptsp_map01.map", "maps/all/ptsp_map02.map"};  //Set here the name of the map to play in.
+        m_mapNames = new String[]{"maps/StageA/ptsp_map01.map", "maps/StageA/ptsp_map02.map"};  //Set here the name of the map to play in.
         m_controllerName = "controllers.greedy.GreedyController"; //Set here the controller name. Leave it to null to play with KeyController.
         //m_controllerName = "controllers.random.RandomController";
         m_visibility = true; //Set here if the graphics must be displayed or not (for those modes where graphics are allowed).
