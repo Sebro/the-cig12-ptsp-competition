@@ -381,8 +381,8 @@ public class Game
     }
     
     /**
-     * Returns the number of waypoitns visited in this play.
-     * @return the number of waypoitns visited in this play
+     * Returns the number of waypoints visited in this play.
+     * @return the number of waypoints visited in this play
      */
     public int getWaypointsVisited()
     {
@@ -422,7 +422,7 @@ public class Game
     }
 
     /**
-     * Aborts the game, becaue of a disqualification.
+     * Aborts the game, because of a disqualification.
      */
     public void abort()
     {
