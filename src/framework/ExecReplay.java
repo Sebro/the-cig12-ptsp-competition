@@ -79,7 +79,7 @@ public class ExecReplay extends Exec
     public static void main(String[] args)
     {
 
-        m_mapName = "maps/all/ptsp_map01.map";  //Set here the name of the map to play in.
+        m_mapName = "maps/StageA/ptsp_map01.map";  //Set here the name of the map to play in.
         m_actionFilename = "example_route.txt"; //Indicate here the name of the file with the actions saved TO SEE a replay.
         m_visibility = true; //Set here if the graphics must be displayed or not (for those modes where graphics are allowed).
         m_verbose = true;
