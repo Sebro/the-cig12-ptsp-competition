@@ -278,7 +278,7 @@ public class ExecSync extends Exec
         //int delay = PTSPConstants.DELAY;  //PTSPConstants.DELAY: best human play speed
         //playGame(delay);
 
-        /////// 2. Executes one game..
+        /////// 2. Executes one game.
         int delay = 0;  //0: quickest; PTSPConstants.DELAY: human play speed, PTSPConstants.ACTION_TIME_MS: max. controller delay
         runGame(m_visibility, delay);
 
