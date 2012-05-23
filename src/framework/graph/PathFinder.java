@@ -169,13 +169,15 @@ public class PathFinder
      */
     private boolean _a_star(Path a_path)
     {
-        //Sets of evaluated an not evaluated nodes.
-        LinkedList<Node> evaluatedSet = new LinkedList<Node>();
+        //Sets of evaluated and not evaluated nodes.
+        HashSet<Integer> evaluatedSet = new HashSet<Integer>();
+        HashSet<Integer> toEvaluateSetMarker = new HashSet<Integer>();
         PriorityQueue<Node> toEvaluateSet = new PriorityQueue<Node>(1000,new NodeComparatorH());
 
         //Initialize current node (origin).
         Node currentNode = m_graph.getNode(a_path.m_originID);
         toEvaluateSet.add(currentNode);
+        toEvaluateSetMarker.add(currentNode.id());
         currentNode.m_g = 0;
         currentNode.m_h = heuristic(a_path.m_originID, a_path.m_destinationID);
         currentNode.m_f = currentNode.m_g + currentNode.m_h;
@@ -186,7 +188,7 @@ public class PathFinder
             //Take next node to evaluate.
             currentNode = toEvaluateSet.poll();
             int currentNodeId = currentNode.id();
-            evaluatedSet.add(currentNode);
+            evaluatedSet.add(currentNode.id());
 
             //If destination found, that's it.
             if(currentNode.id() == a_path.m_destinationID)
@@ -203,7 +205,7 @@ public class PathFinder
                 Node connected = m_graph.getNode(connectedID);
 
                 //If it has not been evaluated yet.
-                if(!evaluatedSet.contains(connected))
+                if(!evaluatedSet.contains(connected.id()))
                 {
                     // Cost from origin to 'connected' stored
                     Path D1 = getShortestPath(a_path.m_originID,connectedID);
@@ -234,10 +236,11 @@ public class PathFinder
                     //Set cost, used by priority queue to navigate more efficiently
                     connected.m_g = pc.p.m_cost;
                     connected.m_f = pc.heuristicCost = pc.p.m_cost + heuristic(connectedID, a_path.m_destinationID);
-                    if(!toEvaluateSet.contains(connected))
+                    if(!toEvaluateSetMarker.contains(connected.id()))
                     {
                         //Mark this node as evaluated.
                         toEvaluateSet.add(connected);
+                        toEvaluateSetMarker.add(connected.id());
                     }
 
                 }
