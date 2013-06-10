@@ -19,7 +19,7 @@ public class PathFinder
     /**
      * Cache of shortest path from node i (index of map) to the others
      */
-    private HashMap<Integer, HashMap<Integer, Path>> m_shortestPaths;
+    private TreeMap<Integer, HashMap<Integer, Path>> m_shortestPaths;
 
     /**
      * Constructor of the pathfinder.
@@ -28,7 +28,7 @@ public class PathFinder
     public PathFinder(Graph a_graph)
     {
         m_graph = a_graph;
-        m_shortestPaths = new HashMap<Integer, HashMap<Integer, Path>>();
+        m_shortestPaths = new TreeMap<Integer, HashMap<Integer, Path>>();
 
         Object []nodes = m_graph.getNodesArray();
         int numNodes = nodes.length;
