@@ -55,6 +55,11 @@ public class Graph
     private Map m_map;
 
     /**
+     * Maps positions in the map to nodes in the graph.
+     */
+    private Node[][] m_nodesCache;
+
+    /**
      * Constructor of the graph.
      * @param a_game Game reference.
      */
@@ -65,6 +70,8 @@ public class Graph
         m_edges = new HashMap<Long, Edge>();
         m_nodes = new HashMap<Integer, Node>();
         int distance = 5;
+
+        m_nodesCache = new Node[m_map.getMapChar().length][m_map.getMapChar()[0].length];
 
         //Create the nodes:
         for(int i = 0; i < m_map.getMapChar().length; i+=GRANULARITY)
@@ -390,6 +397,10 @@ public class Graph
     {
         int xPos = (int)Math.round(a_x);
         int yPos = (int)Math.round(a_y);
+
+        if(m_nodesCache[xPos][yPos] != null)
+            return m_nodesCache[xPos][yPos];
+
         boolean checkObstacles = true;
 
         int factor = 2;
@@ -412,6 +423,8 @@ public class Graph
 
         if(bestNode == null)
             bestNode = getClosestNodeTo(a_x, a_y, false);
+
+        m_nodesCache[xPos][yPos] = bestNode;
 
         return bestNode;
 

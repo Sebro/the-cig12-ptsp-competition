@@ -264,8 +264,9 @@ public class ExecSync extends Exec
     public static void main(String[] args)
     {
 
-        m_mapNames = new String[]{"maps/StageA/ptsp_map01.map", "maps/StageA/ptsp_map02.map"};  //Set here the name of the map to play in.
+        m_mapNames = new String[]{"maps/maps2012/ptsp_map01.map", "maps/maps2012/ptsp_map02.map"};  //Set here the name of the map to play in.
         m_controllerName = "controllers.greedy.GreedyController"; //Set here the controller name. Leave it to null to play with KeyController.
+        m_controllerName = "controllers.MacroRandomSearch.MacroRSController";
         //m_controllerName = "controllers.random.RandomController";
         //m_controllerName = "controllers.WoxController.WoxController"; //Set here the controller name. Leave it to null to play with KeyController.
         m_visibility = true; //Set here if the graphics must be displayed or not (for those modes where graphics are allowed).
